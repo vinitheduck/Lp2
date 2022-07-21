@@ -1,10 +1,8 @@
 package br.ufrn.imd;
 
-import java.util.Objects;
-
 public class Usuario{
     private String name;
-    private Integer id;
+    private Integer id = 0;
     private String email;
     private String senha;
 

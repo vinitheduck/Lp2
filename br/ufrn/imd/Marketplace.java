@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 public class Marketplace implements funcMarketplace{
     public int user_id = 0;
     public int store_id = 0;
-    public int product_id = 0;
 
     public boolean cadastro(String name, String email, String senha){
         if(usuarios.containsKey(email)) {
@@ -36,7 +35,7 @@ public class Marketplace implements funcMarketplace{
             if (user.getSenha().equals(senha)) {
                 user.setSenha(senhaCripto);
                 String token_de_acesso = RandomString.getAlphaNumericString(32);
-                acessosLiberados.put(token_de_acesso, this.user_id);
+                acessosLiberados.put(token_de_acesso, user.getId());
                 return token_de_acesso;
             }
         }
@@ -60,6 +59,17 @@ public class Marketplace implements funcMarketplace{
 
     }
 
+    public void logoff(String token){
+
+        if(acessosLiberados.containsKey(token)){
+            acessosLiberados.remove(token);
+
+        }
+        else {
+            System.out.println("invalid");
+        }
+
+    }
 
 }
 

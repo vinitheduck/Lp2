@@ -1,13 +1,11 @@
 package br.ufrn.imd;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Loja {
     private String name;
     private int id;
-    List<Produtos> produtos = new ArrayList<>();
+    public List<Produtos> produtos = new ArrayList<>();
 
     public String getName(){
         return name;
@@ -25,6 +23,13 @@ public class Loja {
         return id;
     }
 
+
+    public List<Loja> buscar_loja(String name) {
+        List<Loja> busca = new ArrayList<>(funcMarketplace.lojas.values());
+        busca.stream().filter(x->x.getName().equals(name)).forEach(System.out::println);;
+        return busca;
+    }
+
     @Override
     public String toString() {
         return "Loja{" +
@@ -34,5 +39,16 @@ public class Loja {
                 '}' + "\n";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Loja loja = (Loja) o;
+        return Objects.equals(name, loja.name);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }
