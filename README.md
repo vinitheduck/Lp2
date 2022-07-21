@@ -15,4 +15,4 @@ O sistema conta com criação de loja, login (senha e e-mail), adicionar produto
 Pensado em utilizar o maior número de conceitos vistos em sala.
 
 
-Link vídeo:
+Link vídeo: https://youtu.be/CQnRZ6iCqeg
